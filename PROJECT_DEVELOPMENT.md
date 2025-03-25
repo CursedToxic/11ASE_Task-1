@@ -57,6 +57,10 @@ Reliability
 What could perhaps not crash the whole system, but could be an issue and needs to be addressed? Data integrity? Duplicate data? API retrieval crash?
 
 ## Design
+### Gantt Chart
+https://lucid.app/lucidspark/162a4a9b-0462-4f05-9b21-b1997af60854/edit?invitationId=inv_9c51b1d8-6a9c-4b3f-bf6d-b49fa2d28f11&page=uDe-dIt-NWfS#
+### Structure Chart
+### Data Dictionaries
 
 ## Development
 

@@ -73,11 +73,8 @@ description_label.pack()
 # Button1.grid(row=0, column=10)
 # Button2.grid(row=10, column=0)
 # Button3.grid(row= 1, column=1)
-
 # Button1.pack()
 # Button2.pack()
 # Button3.pack()
-
-
 
 root.mainloop()
