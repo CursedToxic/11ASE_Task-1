@@ -5,14 +5,7 @@ from tkinter import *
 from tkinter import messagebox
 import tkinter as tk
 import ttkbootstrap
-# from PIL import Image, ImageTk
-
-root = ttkbootstrap.Window(themename="morph")
-root.title("Weather App From Youtube")
-root.geometry("400x400")
-
-title_text = tk.Label(root, text="W-Weather", font="Helvetica, 36")
-title_text.pack(pady=15)
+from PIL import Image, ImageTk
 
 # Text1 = Label(root, text= "This is to see if you are an idiot")
 # Text2 = Label(root, text= "If you are reading this you have spent at least 1 second on this app")
@@ -32,6 +25,45 @@ title_text.pack(pady=15)
     # darkText = root.configure(background= is_light)
     # darkText.pack()
 
+# Button1 = tk.Button(root, text= "Click to see if you are dumb")
+# Button2 = tk.Button(root, text= "Click to see if you are gullible", command=gullibility)
+# Button3 = tk.Button(root, text= "Dark Mode", bg= "black", fg="white", command=darkMode)
+# Button1.grid(row=0, column=10)
+# Button2.grid(row=10, column=0)
+# Button3.grid(row= 1, column=1)
+# Button1.pack()
+# Button2.pack()
+# Button3.pack()
+
+def get_weather(city):
+    api_key_one = "8f19c2c2e8a325a07b2c35bfe43d861b"
+    # api_key_two = "ce6207a53a45475db3c90051252703"
+    url_one = f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&APPID={api_key_one}'
+    # url_two = f'http://api.weatherapi.com/v1/forecast.json?key={api_key_two}&q={city}&days=1&aqi=no&alerts=no'
+    res_one = requests.get(url_one)
+    # res_two = requests.get(url_two)
+
+    if res_one.status_code == 404:
+        messagebox.showerror("Error", "City Not Found")
+        return None
+    
+    # if res_two.status_code == 404:
+        # messagebox.showerror("Error", "City Not Found")
+        # return None
+    
+    weather_one = res_one.json()
+    # weather_two = res_two.json()
+    print(f'{weather_one}\n')
+    # print(weather_two)
+    icon_id = weather_one["weather"][0]["icon"]
+    temperature = weather_one["main"]["temp"]
+    description = weather_one["weather"][0]["description"]
+    city = weather_one["name"]
+    country = weather_one["sys"]["country"]
+
+    icon_url = f"https://openweathermap.org/img/wn/{icon_id}@2x.png"
+    return (icon_url, temperature, description, city, country)
+
 def search():
     city = city_entry.get()
     result = get_weather(city)
@@ -49,13 +81,21 @@ def search():
     temperature_label.configure(text=f"Temperature: {temperature:.2f}°C")
     description_label.configure(text=f"Description: {description}")
 
-city_entry = ttkbootstrap.Entry(root, font= "Helvetica, 18")
-city_entry.pack(pady=5)
+root = ttkbootstrap.Window(themename="morph")
+root.title("Weather App From Youtube")
+root.geometry("600x600")
 
-search_button = ttkbootstrap.Button(root, text="Get Weather", command=search, bootstyle="warning")
+title_text = tk.Label(root, text="W-Weather", font="Helvetica, 36")
+title_text.pack(pady=15)
+
+city_entry = ttkbootstrap.Entry(root, font= "Helvetica, 18")
+city_entry.pack(pady=10)
+root.bind('<Return>', get_weather)
+
+search_button = ttkbootstrap.Button(root, text="Search", command=search, bootstyle="warning")
 search_button.pack(pady=10)
 
-location_label = tk.Label(root, font= "Helvetica, 25")
+location_label = tk.Label(root, font = "Helvetica, 25")
 location_label.pack(pady=20)
 
 icon_label = tk.Label(root)
@@ -66,15 +106,5 @@ temperature_label.pack()
 
 description_label = tk.Label(root, font="Helvetica, 20")
 description_label.pack()
-
-# Button1 = tk.Button(root, text= "Click to see if you are dumb")
-# Button2 = tk.Button(root, text= "Click to see if you are gullible", command=gullibility)
-# Button3 = tk.Button(root, text= "Dark Mode", bg= "black", fg="white", command=darkMode)
-# Button1.grid(row=0, column=10)
-# Button2.grid(row=10, column=0)
-# Button3.grid(row= 1, column=1)
-# Button1.pack()
-# Button2.pack()
-# Button3.pack()
 
 root.mainloop()
