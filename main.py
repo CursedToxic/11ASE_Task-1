@@ -7,33 +7,7 @@ import tkinter as tk
 import ttkbootstrap
 from PIL import Image, ImageTk
 
-# Text1 = Label(root, text= "This is to see if you are an idiot")
-# Text2 = Label(root, text= "If you are reading this you have spent at least 1 second on this app")
-# Text1.grid(row=0, column=0)
-# Text2.grid(row=0, column=100)
-# Text1.pack()
-# Text2.pack()
-
-# def gullibility():
-      # print(f"This user has clicked the button: Gullible")
-
-# def darkMode():
-    # darkText = Label(root, text= "Dark Mode not activated", fg="white")
-    # is_dark = root.cget("bg")
-    # is_light = ttkbootstrap.Window(themename="morph") if is_dark == ttkbootstrap(themename="superhero") else ttkbootstrap(themename="superhero")
-    # is_light = "white" if is_dark == "black" else "black"
-    # darkText = root.configure(background= is_light)
-    # darkText.pack()
-
-# Button1 = tk.Button(root, text= "Click to see if you are dumb")
-# Button2 = tk.Button(root, text= "Click to see if you are gullible", command=gullibility)
-# Button3 = tk.Button(root, text= "Dark Mode", bg= "black", fg="white", command=darkMode)
-# Button1.grid(row=0, column=10)
-# Button2.grid(row=10, column=0)
-# Button3.grid(row= 1, column=1)
-# Button1.pack()
-# Button2.pack()
-# Button3.pack()
+# Huge thanks to 
 
 def get_weather(city):
     api_key_one = "8f19c2c2e8a325a07b2c35bfe43d861b"
@@ -43,6 +17,7 @@ def get_weather(city):
     res_one = requests.get(url_one)
     # res_two = requests.get(url_two)
 
+    # If the user enters error, the program will output 'City Not Found'
     if res_one.status_code == 404:
         messagebox.showerror("Error", "City Not Found")
         return None
@@ -81,17 +56,26 @@ def search():
     temperature_label.configure(text=f"Temperature: {temperature:.2f}°C")
     description_label.configure(text=f"Description: {description}")
 
+# Create a window in ttkbootstrap
 root = ttkbootstrap.Window(themename="morph")
+# Give the window a name
 root.title("Weather App From Youtube")
+# Set the default resolution of the window
 root.geometry("600x600")
 
-title_text = tk.Label(root, text="W-Weather", font="Helvetica, 36")
+# Display the Name of the weather application
+title_text = tk.Label(root, text="WWeather", font="Helvetica, 36")
 title_text.pack(pady=15)
 
+# Give the user a space to enter their city of choice
 city_entry = ttkbootstrap.Entry(root, font= "Helvetica, 18")
 city_entry.pack(pady=10)
+
+# Make the user able to simply press the ENTER key to fetch weather data (does not work yet)
 root.bind('<Return>', get_weather)
 
+
+# Create and display a search button in order to fetch the weather
 search_button = ttkbootstrap.Button(root, text="Search", command=search, bootstyle="warning")
 search_button.pack(pady=10)
 

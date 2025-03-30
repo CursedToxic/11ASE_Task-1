@@ -1,0 +1,4 @@
+pip install ttkbootstrap
+pip install pillow (for PIL)
+pip install tkinter
+pip install requests
