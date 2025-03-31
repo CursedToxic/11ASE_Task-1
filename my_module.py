@@ -26,8 +26,6 @@ def get_weather(city):
     
     weather_one = res_one.json()
     # weather_two = res_two.json()
-    print(f'{weather_one}\n')
-    # print(weather_two)
     icon_id = weather_one["weather"][0]["icon"]
     temperature = weather_one["main"]["temp"]
     description = weather_one["weather"][0]["description"]
@@ -62,13 +60,26 @@ def change_theme(event):
 # Create a window in ttkbootstrap
 root = ttkbootstrap.Window(themename="morph")
 # Give the window a name
-root.title("Weather App From Youtube")
-# Set the default resolution of the window
-root.geometry("600x600")
+root.title("WWeather")
+# Sets the resolution that the window will open at
+root.geometry("1024x768")
+# Set the minimum resolution or 'size' of the window
+root.minsize(width=800, height=500)
+
+def resize_text(event):
+    # Calculate font size based on window width
+    new_font_size = int(event.width/20)
+    if new_font_size < 36:  # Set a minimum font size
+        new_font_size = 36
+    title_text.config(font=("Helvetica", new_font_size))
+
 
 # Display the Name of the weather application
-title_text = tk.Label(root, text="WWeather", font="Helvetica, 36")
-title_text.pack(pady=15)
+title_text = tk.Label(root, text="WWeather", font=("Helvetica", 36))
+title_text.pack(expand=True, fill=tk.BOTH, pady=5)
+
+# Bind the <Configure> event to adjust text size dynamically
+root.bind("<Configure>", resize_text)
 
 # Give the user a space to enter their city of choice
 city_entry = ttkbootstrap.Entry(root, font= "Helvetica, 18")
@@ -82,9 +93,11 @@ root.bind('<Return>', get_weather)
 search_button = ttkbootstrap.Button(root, text="Search", command=search, bootstyle="warning")
 search_button.pack(pady=10)
 
+
 location_label = tk.Label(root, font = "Helvetica, 25")
 location_label.pack(pady=20)
 
+# Create the icon for the weather description and place it in the GUI
 icon_label = tk.Label(root)
 icon_label.pack()
 
@@ -96,7 +109,7 @@ description_label.pack()
 
 theme_menu = ttkbootstrap.Combobox(root, values=root.style.theme_names(), state="readonly")
 theme_menu.set("Select Theme")  # Default text
-theme_menu.pack()
+theme_menu.pack(pady=5)
 theme_menu.bind("<<ComboboxSelected>>", change_theme)  # Event binding
 
 root.mainloop()
