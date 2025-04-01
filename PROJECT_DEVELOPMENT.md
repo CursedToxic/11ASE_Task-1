@@ -5,11 +5,9 @@
 ## Requirements Definition
 ### Functional Requirements
 **Data Retrieval:**\
- What does the user need to be able to view in the system?\
  The user needs to be able to choose what data to delete, however, this data must not be from the API itself. This ensures that the application does not break due to the user unknowingly deleting something within the API that might stop the program from functioning properly.
 
 **User Interface:**\
- What is required for the user to interact with the system?\
  The ability to click on buttons and read text is needed to use the program. It should be extremely easy to navigate through the user interface and if the user cannot understand, there should be a navigation guide on top of the search bar.
 
 **Data Display:**\
@@ -28,11 +26,9 @@
 ## Determining Specifications
 ### Functional Specifications
 **User Requirements:**\
-What does the user need to be able to do? List all specifications here.\
 The user needs to be able to easily navigate the application even if they have never encountered it before, hopefully even without the guide. 
 
 **Inputs & Outputs:**\
-What inputs will the system need to accept and what outputs will it need to display?\
 inputs: text containing the city
 outputs: weather for that city, this includes the temperature in degrees celsius and the weather description e.g. partly cloudy.
 inputs: buttons
@@ -42,7 +38,6 @@ outputs: fetch and output data from the API.
 The program needs to accept user input so that they can enter the name of a valid city. Another aspect of function is the ability to detect invalid places so that the weather data that is displayed is as accurate as possible so that the user experience will not be negatively affected.The user needs to also be able to search for the place with a button once they have entered the name of the desired place into the search box (this would be preffered if the user could also press ENTER for the same function).
 
 **User Interaction:**\
-How will users interact with the system (e.g. command-line, GUI?) and what information will it need to provide to help users navigate?\
 The program needs to be able to display the temperature and the description of the weather from the API in a GUI (Graphical User Interface). This makes it easy for the user to find exactly what they want without needing to know much about using a computer.
 
 **Error Handling:**\
