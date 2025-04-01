@@ -67,8 +67,38 @@ Link to Gantt Chart: https://lucid.app/lucidspark/162a4a9b-0462-4f05-9b21-b1997a
 
 ### Structure Chart
 
-### Data Dictionaries
+### Data Dictionary
+|Variable|Data Type|Format for Display|Size in Bytes|Size for Display|Description|Example|Validation|
+|--------|---------|------------------|-------------|----------------|-----------|-------|----------|
+|location|string|text|50|50|the name of the place|Sydney|Must be place on google maps|
+|temperature|float|2 decimal number|8|4|the temparature at the place|21.62|must be between -273.15 and 100.00|
+|degrees|string|2 character measurement|20|20|measurement for temperature|°C|must be either °C|
+|description|string|text|100|100|the weather for that place|Partly Cloudy|must be valid desription|
 
+### Pseudocode
+``` python
+BEGIN mainloop
+  WHILE running
+    FUNCTION get_weather
+    FUNCTION search
+    FUNCTION change_theme
+  ENDWHILE
+END mainloop
+
+BEGIN get_weather
+  IF city status code IS 404
+    DISPLAY City Not Found
+  ELSE
+    RETURN icon_url
+    RETURN temperature
+    RETURN description
+    RETURN city
+    RETURN country
+  ENDIF
+END get_weather
+
+
+```
 ## Development
 
 ## Integration

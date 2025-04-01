@@ -7,14 +7,14 @@ from PIL import Image, ImageTk
 
 # Huge thanks to 
 
-def get_weather(city):
-    api_key_one = "8f19c2c2e8a325a07b2c35bfe43d861b"
+api_key_one = "8f19c2c2e8a325a07b2c35bfe43d861b"
     # api_key_two = "ce6207a53a45475db3c90051252703"
-    url_one = f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&APPID={api_key_one}'
+url_one = f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&APPID={api_key_one}'
     # url_two = f'http://api.weatherapi.com/v1/forecast.json?key={api_key_two}&q={city}&days=1&aqi=no&alerts=no'
-    res_one = requests.get(url_one)
+res_one = requests.get(url_one)
     # res_two = requests.get(url_two)
 
+def get_weather(city):
     # If the user enters error, the program will output 'City Not Found'
     if res_one.status_code == 404:
         messagebox.showerror("Error", "City Not Found")
