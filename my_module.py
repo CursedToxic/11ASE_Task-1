@@ -5,7 +5,7 @@ import tkinter as tk
 import ttkbootstrap
 from PIL import Image, ImageTk
 
-# Huge thanks to 
+# Huge thanks to Alina Chudnova for the main application
 
 # Create a window in ttkbootstrap
 root = ttkbootstrap.Window(themename="morph")

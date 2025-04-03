@@ -112,6 +112,819 @@ BEGIN search
   ENDIF
 ```
 ## Development
+Development No.1:
+```python
+import tkinter as tk
+ 
+ root  = tk.Tk()
+ root.title("Window")
+ root.configure(background = "white")
+ root.minsize(200, 200)
+ root.geometry("600x600+400+200")
+ 
+ Button1 = tk.Button(root, text= "Click to see if you are dumb").pack()
+ Button2 = tk.Button(root, text= "Click to see if you are gullible").pack()
+ root.mainloop()
+```
+Development No.2:
+```python
+root = tk.Tk()
+root.title("Window")
+root.configure(background = "white")
+root.minsize(200, 200)
+root.geometry("1280x720+500+250")
+ 
+ Text1 = Label(root, text= "This is to see if you are an idiot")
+ Text2 = Label(root, text= "If you are reading this you have spent at least 1 second on this app")
+ # Text1.grid(row=0, column=0)
+ # Text2.grid(row=0, column=100)
+ Text1.pack()
+ Text2.pack()
+ 
+ def darkMode():
+     # darkText = Label(root, text= "Dark Mode not activated", fg="white")
+         darkText = root.configure(background= "black")
+         darkText.pack()
+ 
+ Button1 = tk.Button(root, text= "Click to see if you are dumb")
+ Button2 = tk.Button(root, text= "Click to see if you are gullible")
+ Button3 = tk.Button(root, text= "Dark Mode", bg= "black", fg="white", command=darkMode)
+ # Button1.grid(row=0, column=10)
+ # Button2.grid(row=10, column=0)
+ # Button3.grid(row= 1, column=1)
+ 
+ Button1.pack()
+ Button2.pack()
+ Button3.pack()
+```
+Development No.3:
+```python
+root.title("Window")
+root.configure(background = "white")
+root.minsize(200, 200)
+root.geometry("1280x720+400+200")
+Text1 = Label(root, text= "This is to see if you are an idiot")
+Text2 = Label(root, text= "If you are reading this you have spent at least 1 second on this app")
+Text1.pack()
+Text2.pack()
+def gullibility():
+       times = Button2.clicked()
+       print(f"This user has clicked the button {times} times")
+ 
+ def darkMode():
+     # darkText = Label(root, text= "Dark Mode not activated", fg="white")
+         is_dark = root.cget("bg")
+         is_light = "white" if is_dark == "black" else "black"
+         darkText = root.configure(background= is_light)
+     # darkText.pack()
+         while root.configure(background= is_dark):
+                 Button3 = tk.Button(root, text= "Light Mode", bg= "white", fg="black", command=darkMode)
+                 if root.configure(background= is_light):
+                     pass 
+                 else:
+                     continue
+ 
+ Button1 = tk.Button(root, text= "Click to see if you are dumb")
+ Button2 = tk.Button(root, text= "Click to see if you are gullible", command=gullibility)
+ Button3 = tk.Button(root, text= "Dark Mode", bg= "black", fg="white", command=darkMode)
+ # Button1.grid(row=0, column=10)
+ # Button2.grid(row=10, column=0)
+ # Button3.grid(row= 1, column=1)
+ 
+ Button1.pack()
+ Button2.pack()
+ Button3.pack()
+```
+Development No.4:
+```python
+ api_key = "8f19c2c2e8a325a07b2c35bfe43d861b"
+ 
+ import requests
+ from tkinter import *
+ import tkinter as tk
+ 
+ ### Thanks to Arpan Neupane for the text based application, I have followed his video tutorial.
+ user_input = input("Enter City: ")
+ 
+ weather_data = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={user_input}&units=metric&APPID={api_key}')
+ 
+ if weather_data.json()['cod'] == '404':
+        print("No City Found")
+ 
+ else:
+     weather = weather_data.json()['weather'][0]['main']
+     temp = weather_data.json()['main']['temp']
+     print(f"The weather in {user_input} is {weather}.")
+     print(f"The temperature in {user_input} is {temp}°C.")
+ 
+ ### From here on the rest is by me
+ 
+ root = tk.Tk()
+ root.title("Window")
+ root.configure(background = "white")
+ # root.minsize(200, 200)
+ # root.geometry("1280x720+400+200")
+ 
+ Text1 = Label(root, text= "This is to see if you are an idiot")
+ Text2 = Label(root, text= "If you are reading this you have spent at least 1 second on this app")
+ Text2.pack()
+ 
+ def gullibility():
+       print(f"This user has clicked the button: Gullible")
+ 
+ def darkMode():
+     # darkText = Label(root, text= "Dark Mode not activated", fg="white")
+         is_dark = root.cget("bg")
+         is_light = "white" if is_dark == "black" else "black"
+         darkText = root.configure(background= is_light)
+     # darkText.pack()
+ 
+ Button1 = tk.Button(root, text= "Click to see if you are dumb")
+ Button2 = tk.Button(root, text= "Click to see if you are gullible", command=gullibility)
+ Button3 = tk.Button(root, text= "Dark Mode", bg= "black", fg="white", command=darkMode)
+ # Button1.grid(row=0, column=10)
+ # Button2.grid(row=10, column=0)
+ # Button3.grid(row= 1, column=1)
+ 
+ Button1.pack()
+ Button2.pack()
+ Button3.pack()
+```
+Development No.5:
+```python
+import requests
+ from tkinter import *
+ from tkinter import messagebox
+ import tkinter as tk
+ import ttkbootstrap
+ # from PIL import Image, ImageTk
+ 
+ root = ttkbootstrap.Window(themename="morph")
+ root.title("Weather App From Youtube")
+ root.geometry("400x400")
+
+ title_text = tk.Label(root, text="W-Weather", font="Helvetica, 36")
+ title_text.pack(pady=15)
+
+ # Text1 = Label(root, text= "This is to see if you are an idiot")
+ # Text2 = Label(root, text= "If you are reading this you have spent at least 1 second on this app")
+ # Text1.grid(row=0, column=0)
+ # Text2.grid(row=0, column=100)
+
+ # Text1.pack()
+ # Text2.pack()
+
+ # def gullibility():
+       # print(f"This user has clicked the button: Gullible")
+ 
+ # def darkMode():
+     # darkText = Label(root, text= "Dark Mode not activated", fg="white")
+     # is_dark = root.cget("bg")
+     # is_light = ttkbootstrap.Window(themename="morph") if is_dark == ttkbootstrap(themename="superhero") else ttkbootstrap(themename="superhero")
+     # is_light = "white" if is_dark == "black" else "black"
+     # darkText = root.configure(background= is_light)
+     # darkText.pack()
+
+ def search():
+     city = city_entry.get()
+     result = get_weather(city)
+     if result is None:
+         return
+ 
+     icon_url, temperature, description, city, country = result
+     location_label.configure(text=f"{city}, {country}")
+ 
+     image = Image.open(requests.get(icon_url, stream=True).raw)
+     icon = ImageTk.PhotoImage(image)
+     icon_label.configure(image=icon)
+     icon_label.image = icon
+ 
+     temperature_label.configure(text=f"Temperature: {temperature:.2f}°C")
+     description_label.configure(text=f"Description: {description}")
+ 
+ city_entry = ttkbootstrap.Entry(root, font= "Helvetica, 18")
+ city_entry.pack(pady=5)
+ 
+ search_button = ttkbootstrap.Button(root, text="Get Weather", command=search, bootstyle="warning")
+ search_button.pack(pady=10)
+ 
+ location_label = tk.Label(root, font= "Helvetica, 25")
+ location_label.pack(pady=20)
+ 
+ icon_label = tk.Label(root)
+ icon_label.pack()
+ 
+ temperature_label = tk.Label(root, font="Helvetica, 20")
+ temperature_label.pack()
+ 
+ description_label = tk.Label(root, font="Helvetica, 20")
+ description_label.pack()
+ 
+ # Button1 = tk.Button(root, text= "Click to see if you are dumb")
+ # Button2 = tk.Button(root, text= "Click to see if you are gullible", command=gullibility)
+ # Button3 = tk.Button(root, text= "Dark Mode", bg= "black", fg="white", command=darkMode)
+ # Button1.grid(row=0, column=10)
+ # Button2.grid(row=10, column=0)
+ # Button3.grid(row= 1, column=1)
+ # Button1.pack()
+ # Button2.pack()
+ # Button3.pack()
+ root.mainloop()
+```
+Development No.6:
+```python
+from tkinter import messagebox
+import tkinter as tk
+import ttkbootstrap
+from PIL import Image, ImageTk
+# Button1 = tk.Button(root, text= "Click to see if you are dumb")
+ # Button2 = tk.Button(root, text= "Click to see if you are gullible", command=gullibility)
+ # Button3 = tk.Button(root, text= "Dark Mode", bg= "black", fg="white", command=darkMode)
+ # Button1.grid(row=0, column=10)
+ # Button2.grid(row=10, column=0)
+ # Button3.grid(row= 1, column=1)
+ # Button1.pack()
+ # Button2.pack()
+ # Button3.pack()
+ 
+ def get_weather(city):
+     api_key_one = "8f19c2c2e8a325a07b2c35bfe43d861b"
+     # api_key_two = "ce6207a53a45475db3c90051252703"
+     url_one = f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&APPID={api_key_one}'
+     # url_two = f'http://api.weatherapi.com/v1/forecast.json?key={api_key_two}&q={city}&days=1&aqi=no&alerts=no'
+     res_one = requests.get(url_one)
+     # res_two = requests.get(url_two)
+ 
+     if res_one.status_code == 404:
+         messagebox.showerror("Error", "City Not Found")
+         return None
+     
+     # if res_two.status_code == 404:
+         # messagebox.showerror("Error", "City Not Found")
+         # return None
+     
+     weather_one = res_one.json()
+     # weather_two = res_two.json()
+     print(f'{weather_one}\n')
+     # print(weather_two)
+     icon_id = weather_one["weather"][0]["icon"]
+     temperature = weather_one["main"]["temp"]
+     description = weather_one["weather"][0]["description"]
+     city = weather_one["name"]
+     country = weather_one["sys"]["country"]
+ 
+     icon_url = f"https://openweathermap.org/img/wn/{icon_id}@2x.png"
+     return (icon_url, temperature, description, city, country)
+ 
+ def search():
+    city = city_entry.get()
+     result = get_weather(city)
+     if result is None:
+         return
+ 
+     icon_url, temperature, description, city, country = result
+     location_label.configure(text=f"{city}, {country}")
+ 
+     image = Image.open(requests.get(icon_url, stream=True).raw)
+     icon = ImageTk.PhotoImage(image)
+     icon_label.configure(image=icon)
+     icon_label.image = icon
+ 
+     temperature_label.configure(text=f"Temperature: {temperature:.2f}°C")
+     description_label.configure(text=f"Description: {description}")
+
+ root = ttkbootstrap.Window(themename="morph")
+ root.title("Weather App From Youtube")
+ root.geometry("600x600")
+ 
+ title_text = tk.Label(root, text="W-Weather", font="Helvetica, 36")
+ title_text.pack(pady=15)
+ 
+ city_entry = ttkbootstrap.Entry(root, font= "Helvetica, 18")
+ city_entry.pack(pady=10)
+ root.bind('<Return>', get_weather)
+ search_button = ttkbootstrap.Button(root, text="Search", command=search, bootstyle="warning")
+ search_button.pack(pady=10)
+ location_label = tk.Label(root, font = "Helvetica, 25")
+ location_label.pack(pady=20)
+ icon_label = tk.Label(root)
+ icon_label.pack()
+ 
+ temperature_label = tk.Label(root, font="Helvetica, 20")
+ temperature_label.pack()
+ 
+ description_label = tk.Label(root, font="Helvetica, 20")
+ description_label.pack()
+root.mainloop()
+```
+From this point on, the program was moved to another file called 'my_module.py'.
+
+Development No.7:
+```python
+# main.py
+import my_module as m
+
+ m.root.mainloop()
+
+# my_module.py
+import requests
+ from tkinter import *
+ from tkinter import messagebox
+ import tkinter as tk
+ import ttkbootstrap
+ from PIL import Image, ImageTk
+ 
+ # Huge thanks to 
+ 
+ def get_weather(city):
+     api_key_one = "8f19c2c2e8a325a07b2c35bfe43d861b"
+     # api_key_two = "ce6207a53a45475db3c90051252703"
+     url_one = f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&APPID={api_key_one}'
+     # url_two = f'http://api.weatherapi.com/v1/forecast.json?key={api_key_two}&q={city}&days=1&aqi=no&alerts=no'
+     res_one = requests.get(url_one)
+     # res_two = requests.get(url_two)
+ 
+     # If the user enters error, the program will output 'City Not Found'
+     if res_one.status_code == 404:
+         messagebox.showerror("Error", "City Not Found")
+         return None
+     
+     # if res_two.status_code == 404:
+         # messagebox.showerror("Error", "City Not Found")
+         # return None
+     
+     weather_one = res_one.json()
+     # weather_two = res_two.json()
+     print(f'{weather_one}\n')
+     # print(weather_two)
+     icon_id = weather_one["weather"][0]["icon"]
+     temperature = weather_one["main"]["temp"]
+     description = weather_one["weather"][0]["description"]
+     city = weather_one["name"]
+     country = weather_one["sys"]["country"]
+ 
+     icon_url = f"https://openweathermap.org/img/wn/{icon_id}@2x.png"
+     return (icon_url, temperature, description, city, country)
+ 
+ def search():
+     city = city_entry.get()
+     result = get_weather(city)
+     if result is None:
+         return
+ 
+     icon_url, temperature, description, city, country = result
+     location_label.configure(text=f"{city}, {country}")
+ 
+     image = Image.open(requests.get(icon_url, stream=True).raw)
+     icon = ImageTk.PhotoImage(image)
+     icon_label.configure(image=icon)
+     icon_label.image = icon
+ 
+     temperature_label.configure(text=f"Temperature: {temperature:.2f}°C")
+     description_label.configure(text=f"Description: {description}")
+ 
+ # Function to change the theme
+ def change_theme(event):
+     selected_theme = theme_menu.get()
+     root.style.theme_use(selected_theme)
+ 
+ # Create a window in ttkbootstrap
+ root = ttkbootstrap.Window(themename="morph")
+ # Give the window a name
+ root.title("Weather App From Youtube")
+ # Set the default resolution of the window
+ root.geometry("600x600")
+ 
+ # Display the Name of the weather application
+ title_text = tk.Label(root, text="WWeather", font="Helvetica, 36")
+ title_text.pack(pady=15)
+ 
+ # Give the user a space to enter their city of choice
+ city_entry = ttkbootstrap.Entry(root, font= "Helvetica, 18")
+ city_entry.pack(pady=10)
+ 
+ # Make the user able to simply press the ENTER key to fetch weather data (does not work yet)
+ root.bind('<Return>', get_weather)
+ 
+ 
+ # Create and display a search button in order to fetch the weather
+ search_button = ttkbootstrap.Button(root, text="Search", command=search, bootstyle="warning")
+ search_button.pack(pady=10)
+ 
+ location_label = tk.Label(root, font = "Helvetica, 25")
+ location_label.pack(pady=20)
+ 
+ icon_label = tk.Label(root)
+ icon_label.pack()
+ 
+ temperature_label = tk.Label(root, font="Helvetica, 20")
+ temperature_label.pack()
+ 
+ description_label = tk.Label(root, font="Helvetica, 20")
+ description_label.pack()
+ 
+ theme_menu = ttkbootstrap.Combobox(root, values=root.style.theme_names(), state="readonly")
+ theme_menu.set("Select Theme")  # Default text
+ theme_menu.pack()
+ theme_menu.bind("<<ComboboxSelected>>", change_theme)  # Event binding
+ 
+ root.mainloop()
+```
+Here I also created another file for testing other functions that I wanted to add, such as an actually functional theme changer.
+```python
+# sample_code.py
+import ttkbootstrap as ttk
+from ttkbootstrap.constants import *
+ 
+ # Function to change the theme
+ def change_theme(event):
+     selected_theme = theme_menu.get()
+     app.style.theme_use(selected_theme)
+ 
+ # Create the main application window
+ app = ttk.Window(themename="cosmo")
+ app.title("Theme Changer")
+ app.geometry("300x150")
+ 
+ # Dropdown menu for selecting themes
+ theme_menu = ttk.Combobox(app, values=app.style.theme_names(), state="readonly")
+ theme_menu.set("Select Theme")  # Default text
+ theme_menu.pack(pady=30)
+ theme_menu.bind("<<ComboboxSelected>>", change_theme)  # Event binding
+ 
+ # Start the application
+ app.mainloop()
+```
+Development No. 8:
+```python
+# main.py
+import my_module as m
+ 
+ m.root.geometry("1024x768")
+ 
+ m.root.mainloop()
+
+# my_module.py
+import requests
+ from tkinter import *
+ from tkinter import messagebox
+ import tkinter as tk
+ import ttkbootstrap
+ from PIL import Image, ImageTk
+ 
+ # Huge thanks to 
+ 
+ def get_weather(city):
+     api_key_one = "8f19c2c2e8a325a07b2c35bfe43d861b"
+     # api_key_two = "ce6207a53a45475db3c90051252703"
+     url_one = f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&APPID={api_key_one}'
+     # url_two = f'http://api.weatherapi.com/v1/forecast.json?key={api_key_two}&q={city}&days=1&aqi=no&alerts=no'
+     res_one = requests.get(url_one)
+     # res_two = requests.get(url_two)
+ 
+     # If the user enters error, the program will output 'City Not Found'
+     if res_one.status_code == 404:
+         messagebox.showerror("Error", "City Not Found")
+         return None
+ 
+     # if res_two.status_code == 404:
+         # messagebox.showerror("Error", "City Not Found")
+         # return None
+ 
+     weather_one = res_one.json()
+     # weather_two = res_two.json()
+     icon_id = weather_one["weather"][0]["icon"]
+     temperature = weather_one["main"]["temp"]
+     description = weather_one["weather"][0]["description"]
+     city = weather_one["name"]
+     country = weather_one["sys"]["country"]
+ 
+     icon_url = f"https://openweathermap.org/img/wn/{icon_id}@2x.png"
+     return (icon_url, temperature, description, city, country)
+ 
+ def search():
+     city = city_entry.get()
+     result = get_weather(city)
+     if result is None:
+         return
+ 
+     icon_url, temperature, description, city, country = result
+     location_label.configure(text=f"{city}, {country}")
+ 
+     image = Image.open(requests.get(icon_url, stream=True).raw)
+     icon = ImageTk.PhotoImage(image)
+     icon_label.configure(image=icon)
+     icon_label.image = icon
+ 
+     temperature_label.configure(text=f"Temperature: {temperature:.2f}°C")
+     description_label.configure(text=f"Description: {description}")
+ 
+ # Function to change the theme
+ def change_theme(event):
+     selected_theme = theme_menu.get()
+     root.style.theme_use(selected_theme)
+ 
+ # Create a window in ttkbootstrap
+ root = ttkbootstrap.Window(themename="morph")
+ # Give the window a name
+ root.title("WWeather")
+ # Sets the resolution that the window will open at
+ root.geometry("1024x768")
+ # Set the minimum resolution or 'size' of the window
+ root.minsize(width=800, height=500)
+ 
+ def resize_text(event):
+     # Calculate font size based on window width
+     new_font_size = int(event.width/20)
+     if new_font_size < 36:  # Set a minimum font size
+         new_font_size = 36
+     title_text.config(font=("Helvetica", new_font_size))
+ 
+ # Display the Name of the weather application
+ title_text = tk.Label(root, text="WWeather", font=("Helvetica", 36))
+ title_text.pack(expand=True, fill=tk.BOTH, pady=5)
+ 
+ # Bind the <Configure> event to adjust text size dynamically
+ root.bind("<Configure>", resize_text)
+ 
+ # Give the user a space to enter their city of choice
+ city_entry = ttkbootstrap.Entry(root, font= "Helvetica, 18")
+ city_entry.pack(pady=10)
+ 
+ # Make the user able to simply press the ENTER key to fetch weather data (does not work yet)
+ root.bind('<Return>', get_weather)
+ 
+ # Create and display a search button in order to fetch the weather
+ search_button = ttkbootstrap.Button(root, text="Search", command=search, bootstyle="warning")
+ search_button.pack(pady=10)
+ 
+ location_label = tk.Label(root, font = "Helvetica, 25")
+ location_label.pack(pady=20)
+ 
+ # Create the icon for the weather description and place it in the GUI
+ icon_label = tk.Label(root)
+ icon_label.pack()
+ 
+ temperature_label = tk.Label(root, font="Helvetica, 20")
+ temperature_label.pack()
+ 
+ description_label = tk.Label(root, font="Helvetica, 20")
+ description_label.pack()
+ 
+ theme_menu = ttkbootstrap.Combobox(root, values=root.style.theme_names(), state="readonly")
+ theme_menu.set("Select Theme")  # Default text
+ theme_menu.pack(pady=5)
+ theme_menu.bind("<<ComboboxSelected>>", change_theme)  # Event binding
+ 
+ root.mainloop()
+```
+Development No. 9:
+```python
+# main.py
+import my_module as m
+
+ m.root.mainloop()
+
+# my_module.py
+import requests
+ from tkinter import *
+ from tkinter import messagebox
+ import tkinter as tk
+ import ttkbootstrap
+ from PIL import Image, ImageTk
+ 
+ # Huge thanks to 
+ 
+ def get_weather(city):
+     api_key_one = "8f19c2c2e8a325a07b2c35bfe43d861b"
+     # api_key_two = "ce6207a53a45475db3c90051252703"
+     url_one = f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&APPID={api_key_one}'
+     # url_two = f'http://api.weatherapi.com/v1/forecast.json?key={api_key_two}&q={city}&days=1&aqi=no&alerts=no'
+     res_one = requests.get(url_one)
+     # res_two = requests.get(url_two)
+ 
+     # If the user enters error, the program will output 'City Not Found'
+     if res_one.status_code == 404:
+         messagebox.showerror("Error", "City Not Found")
+         return None
+ 
+     # if res_two.status_code == 404:
+         # messagebox.showerror("Error", "City Not Found")
+         # return None
+ 
+     weather_one = res_one.json()
+     # weather_two = res_two.json()
+     icon_id = weather_one["weather"][0]["icon"]
+     temperature = weather_one["main"]["temp"]
+     description = weather_one["weather"][0]["description"]
+     city = weather_one["name"]
+     country = weather_one["sys"]["country"]
+ 
+     icon_url = f"https://openweathermap.org/img/wn/{icon_id}@2x.png"
+     return (icon_url, temperature, description, city, country)
+ 
+ def search():
+     city = city_entry.get()
+     result = get_weather(city)
+     if result is None:
+         return
+ 
+     icon_url, temperature, description, city, country = result
+     location_label.configure(text=f"{city}, {country}")
+ 
+     image = Image.open(requests.get(icon_url, stream=True).raw)
+     icon = ImageTk.PhotoImage(image)
+     icon_label.configure(image=icon)
+     icon_label.image = icon
+ 
+     temperature_label.configure(text=f"Temperature: {temperature:.2f}°C")
+     description_label.configure(text=f"Description: {description}")
+ 
+ # Function to change the theme
+ def change_theme(event):
+     selected_theme = theme_menu.get()
+     root.style.theme_use(selected_theme)
+ 
+ # Create a window in ttkbootstrap
+ root = ttkbootstrap.Window(themename="morph")
+ # Give the window a name
+ root.title("WWeather")
+ # Sets the resolution that the window will open at
+ root.geometry("1024x768")
+ # Set the minimum resolution or 'size' of the window
+ root.minsize(width=800, height=500)
+ 
+ def resize_text(event):
+     # Calculate font size based on window width
+     new_font_size = int(event.width/20)
+     if new_font_size < 36:  # Set a minimum font size
+         new_font_size = 36
+     title_text.config(font=("Helvetica", new_font_size))
+ 
+ # Display the Name of the weather application
+ title_text = tk.Label(root, text="WWeather", font=("Helvetica", 36))
+ title_text.pack(expand=True, fill=tk.BOTH, pady=5)
+ 
+ # Bind the <Configure> event to adjust text size dynamically
+ root.bind("<Configure>", resize_text)
+ 
+ # Give the user a space to enter their city of choice
+ city_entry = ttkbootstrap.Entry(root, font= "Helvetica, 18")
+ city_entry.pack(pady=10)
+ 
+ # Make the user able to simply press the ENTER key to fetch weather data (does not work yet)
+ root.bind('<Return>', get_weather)
+ 
+ # Create and display a search button in order to fetch the weather
+ search_button = ttkbootstrap.Button(root, text="Search", command=search, bootstyle="warning")
+ search_button.pack(pady=10)
+ 
+ location_label = tk.Label(root, font = "Helvetica, 25")
+ location_label.pack(pady=20)
+ 
+ # Create the icon for the weather description and place it in the GUI
+ icon_label = tk.Label(root)
+ icon_label.pack()
+ 
+ temperature_label = tk.Label(root, font="Helvetica, 20")
+ temperature_label.pack()
+ 
+ description_label = tk.Label(root, font="Helvetica, 20")
+ description_label.pack()
+ 
+ theme_menu = ttkbootstrap.Combobox(root, values=root.style.theme_names(), state="readonly")
+ theme_menu.set("Select Theme")  # Default text
+ theme_menu.pack(pady=5)
+ theme_menu.bind("<<ComboboxSelected>>", change_theme)  # Event binding
+ 
+ root.mainloop()
+```
+Development No. 10:
+```python
+# main.py
+import my_module as m
+ 
+ m.root.mainloop()
+
+# my_module.py
+import requests
+ from tkinter import *
+ from tkinter import messagebox
+ import tkinter as tk
+ import ttkbootstrap
+ from PIL import Image, ImageTk
+ 
+ # Huge thanks to 
+ 
+ def get_weather(city):
+     api_key_one = "8f19c2c2e8a325a07b2c35bfe43d861b"
+     # api_key_two = "ce6207a53a45475db3c90051252703"
+     url_one = f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&APPID={api_key_one}'
+     # url_two = f'http://api.weatherapi.com/v1/forecast.json?key={api_key_two}&q={city}&days=1&aqi=no&alerts=no'
+     res_one = requests.get(url_one)
+     # res_two = requests.get(url_two)
+ 
+     # If the user enters error, the program will output 'City Not Found'
+     if res_one.status_code == 404:
+         messagebox.showerror("Error", "City Not Found")
+         return None
+ 
+     # if res_two.status_code == 404:
+         # messagebox.showerror("Error", "City Not Found")
+         # return None
+ 
+     weather_one = res_one.json()
+     # weather_two = res_two.json()
+     icon_id = weather_one["weather"][0]["icon"]
+     temperature = weather_one["main"]["temp"]
+     description = weather_one["weather"][0]["description"]
+     city = weather_one["name"]
+     country = weather_one["sys"]["country"]
+ 
+     icon_url = f"https://openweathermap.org/img/wn/{icon_id}@2x.png"
+     return (icon_url, temperature, description, city, country)
+ 
+ def search():
+     city = city_entry.get()
+     result = get_weather(city)
+     if result is None:
+         return
+ 
+     icon_url, temperature, description, city, country = result
+     location_label.configure(text=f"{city}, {country}")
+ 
+     image = Image.open(requests.get(icon_url, stream=True).raw)
+     icon = ImageTk.PhotoImage(image)
+     icon_label.configure(image=icon)
+     icon_label.image = icon
+ 
+     temperature_label.configure(text=f"Temperature: {temperature:.2f}°C")
+     description_label.configure(text=f"Description: {description}")
+ 
+ # Function to change the theme
+ def change_theme(event):
+     selected_theme = theme_menu.get()
+     root.style.theme_use(selected_theme)
+ 
+ # Create a window in ttkbootstrap
+ root = ttkbootstrap.Window(themename="morph")
+ # Give the window a name
+ root.title("WWeather")
+ # Sets the resolution that the window will open at
+ root.geometry("1024x768")
+ # Set the minimum resolution or 'size' of the window
+ root.minsize(width=800, height=500)
+ 
+ def resize_text(event):
+     # Calculate font size based on window width
+     new_font_size = int(event.width/20)
+     if new_font_size < 36:  # Set a minimum font size
+         new_font_size = 36
+     title_text.config(font=("Helvetica", new_font_size))
+ 
+ # Display the Name of the weather application
+ title_text = tk.Label(root, text="WWeather", font=("Helvetica", 36))
+ title_text.pack(expand=True, fill=tk.BOTH, pady=5)
+ 
+ # Bind the <Configure> event to adjust text size dynamically
+ root.bind("<Configure>", resize_text)
+ 
+ # Give the user a space to enter their city of choice
+ city_entry = ttkbootstrap.Entry(root, font= "Helvetica, 18")
+ city_entry.pack(pady=10)
+ 
+ # Make the user able to simply press the ENTER key to fetch weather data (does not work yet)
+ root.bind('<Return>', get_weather)
+ 
+ # Create and display a search button in order to fetch the weather
+ search_button = ttkbootstrap.Button(root, text="Search", command=search, bootstyle="warning")
+ search_button.pack(pady=10)
+ 
+ location_label = tk.Label(root, font = "Helvetica, 25")
+ location_label.pack(pady=20)
+ 
+ # Create the icon for the weather description and place it in the GUI
+ icon_label = tk.Label(root)
+ icon_label.pack()
+ 
+ temperature_label = tk.Label(root, font="Helvetica, 20")
+ temperature_label.pack()
+ 
+ description_label = tk.Label(root, font="Helvetica, 20")
+ description_label.pack()
+ 
+ theme_menu = ttkbootstrap.Combobox(root, values=root.style.theme_names(), state="readonly")
+ theme_menu.set("Select Theme")  # Default text
+ theme_menu.pack(pady=5)
+ theme_menu.bind("<<ComboboxSelected>>", change_theme)  # Event binding
+ 
+ root.mainloop()
+```
+I tried to move the API key, URL and Request out of the function, however, the program did not function, so I moved it back in.
+
+Development No.11:
+```python
+```
 
 ## Integration
 Documented Commit No.1:
@@ -125,7 +938,7 @@ import tkinter as tk
 import ttkbootstrap
 from PIL import Image, ImageTk
 
-# Huge thanks to some guy on yt for the tutorial.
+# Huge thanks to Alina Chudnova for the YouTube tutorial.
 
 api_key_one = "8f19c2c2e8a325a07b2c35bfe43d861b"
     # api_key_two = "ce6207a53a45475db3c90051252703"
@@ -358,6 +1171,62 @@ theme_menu.bind("<<ComboboxSelected>>", change_theme)  # Bind the selection of t
 root.mainloop()
 ```
 ## Testing and Debugging
+4/3/2025\
+Added Basic Structure for Project Development\
+Today I added the subheadings for the Documentation and Theory. This sets out the backbone for the theory that is required in the future. I plan to complete the Requirements Definition shortly after.
+
+10/3/2025\
+Added a TKinter window to main.py\
+Today I added a window and two non-functional buttons to the main.py file. This program is just a placeholder and will not be included in my final project, just me learning TKinter. 
+
+11/3/2025\
+Added Dark Mode\
+Today I added a Dark Mode to the sample program. This was partially because I was lost on what to do even though I could have been working on the theory and documentation. The feature may be removed in the furture.
+
+17/3/2025\
+Broke Dark Mode\
+Today I tried to make it so that when you press the dark mode button again it will switch back to light mode. I thought this would work, however it did not function as expected. Again, I don't have a single clue on why I made this if there was already a sample program in place when I could have been working on the theory and Documentation.
+
+18/3/2025\
+Followed an existing tutorial to create text based application, credited in the first comment\
+Today I reverted the dark mode function back to what it was before and followed a YouTube tutorial for a python based weather application by Arpan Neupane. This would help form part of the backbone of the final program.
+
+24/3/2025\
+Followed a YouTube tutorial to change into GUI\
+Today I followed a YouTube tutorial by Alina Chudnova to turn the text based application into an application with a GUI (Graphical User Interface). This application is still used in the file which is now 'my_module.py'.
+
+25/3/2025\
+Added the link to the Gantt Chart\
+Today I finished creating the Gantt Chart, which is under the design section in the theory/documentation. I was going to take a screenshot later when I got home (I have a 4k monitor and I thought this would make it clearer), however, I forgot and just left it as is.
+
+27/3/2025\
+UPDATED main.py\
+Today I made some changes to the main.py file which was the file which I copied the YouTube tutorial on. At this point I have not yet created a file called 'my_module.py'. This may or may not remain in the final program. I also have no clue why I have not credited their tutorial yet.
+
+30/3/2025\
+Created Gantt Chart.png\
+Today I inserted the 'Gantt Chart.png' image as part of the documentation of time planning (yes, I finally rememered to take a screenshot). I also made some changes to the theory side, but they were not showing up, leading me to think that GitHub Desktop was not working properly (hence the next commit on the same day.)
+
+Added some to the 'theory' side\
+Needless to say, it was not an error with GitHub Desktop, I just did not know that autosave was not on. Anyways I finally enabled it and roughly finished the Requirements and Specifications and touched on the Design aspect of the task with the Gantt Chart. These will be poilished over the following week otherwise the situation could turn dire.
+
+31/3/2025\
+Added theme changer\
+Today I added a working theme changer using the Combobox function built into ttkbootstrap (combo = combination/selection, box = container, combobox = selection container). This allowed me to remove the dark mode for good, instead opting for a theme selector (ttkboostrap has more aesthetic themes).
+
+Modified my_module.py\
+I also learnt how to create dynamically adjusting text in TKinter, which I applied to the title of the weather application to make it more realistic, however, it only works after being minimised then reopened. I originally thought that this could have been because of my computer's slow processing due to having to process more pixels (as documented in the GitHub commit), however, the same thing happened on the school desktop, so it turns out that ttkbootstrap is slightly different to TKinter. I also removed an unnecessary line of code (I do not know why that had to be a separate commit.)
+
+1/4/2025\
+Added some things to the theory\
+Today I completed the data dictionary and completed some of the pseudocode. I will begin to work on the structure charts later. Also I tried moving the API key to the front, however the program does not work in that configuration, so I moved it back to where it was before.
+
+Added the flowcharts and some commits\
+Here I began documenting the commits that I made on GitHub in PROJECT_DEVELOPMENT.md and with more detail. This helped me understand and connect with the project on a deeper level. I should remember to add more detail in my future commits.
+
+3/4/2025\
+Completed more of the theory work\
+Today I completed most of testing and debugging and all the development that I can do. I will be documenting commits both in VSCode and GitHub Desktop from now on. The aim for today was to complete the structure charts, however, I wish to take a break due to completing a substantial amount of work compared to the amount of progress that I have made so far. In the future, I shall finish the structure chart for the program and work on the 'Integration' section, which will make me up to scratch for completion on Monday 7/4.
 
 ## Installation
 
