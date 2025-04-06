@@ -1,8 +1,8 @@
 # 11ASE_Task-1
  
-# Project Title
+# WWeather
 
-Brief description of the project.
+A weather app made with python that doesn't completely suck.
 
 ## Installation
 

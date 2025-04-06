@@ -18,6 +18,18 @@ root.minsize(width=800, height=500)
 
 # Function for getting the weather for the entererd location
 def get_weather(city):
+    """ Uses the API key to fetch and output the data from the url, making a request in the process
+    
+    Args: 
+        icon_id (str): the identification for the icon that represents the weather
+        temperature (float): the temperature of the entered location
+        city (str): the entered location
+        country (str): country the location is in
+        description (str): weather description
+
+    Returns: 
+        .json file: includes the weather, an icon_id associated with the weather, temperature, city and country
+    """
     api_key_one = "8f19c2c2e8a325a07b2c35bfe43d861b"
     url_one = f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&APPID={api_key_one}'
     res_one = requests.get(url_one)
@@ -27,7 +39,7 @@ def get_weather(city):
         messagebox.showerror("Error", "City Not Found")
         return None
     
-    ### Below is for the other, more accurate WeatherAPI
+    ### Below is for the other, more accurate WeatherAPI which did not work for this program
     # api_key_two = "ce6207a53a45475db3c90051252703"
     # url_two = f'http://api.weatherapi.com/v1/forecast.json?key={api_key_two}&q={city}&days=1&aqi=no&alerts=no'
     # res_two = requests.get(url_two)
@@ -48,6 +60,14 @@ def get_weather(city):
 
 # Function to fetch weather from user entered location
 def search():
+    """ A search button that allows the user to actually search for the weather
+
+        Args:
+            city (str): the entered location
+        
+        Returns:
+            a visual display of the results from the .json file. 
+    """
     city = city_entry.get()
     result = get_weather(city)
     if result is None:
