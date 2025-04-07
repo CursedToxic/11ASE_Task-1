@@ -29,10 +29,7 @@
 The user needs to be able to easily navigate the application even if they have never encountered it before, hopefully even without the guide. 
 
 **Inputs & Outputs:**\
-inputs: text containing the city
-outputs: weather for that city, this includes the temperature in degrees celsius and the weather description e.g. partly cloudy.
-inputs: buttons
-outputs: fetch and output data from the API.
+The user inputs text containing the location that they would like to find the weather for. The outputs are the weather for that city, including the temperature in degrees celsius and the weather description e.g. partly cloudy, this shall be done by fetching and outputting data from the API.
 
 **Core Features:**\
 The program needs to accept user input so that they can enter the name of a valid city. Another aspect of function is the ability to detect invalid places so that the weather data that is displayed is as accurate as possible so that the user experience will not be negatively affected.The user needs to also be able to search for the place with a button once they have entered the name of the desired place into the search box (this would be preffered if the user could also press ENTER for the same function).
@@ -1278,6 +1275,70 @@ Today I completed most of testing and debugging and all the development that I c
 Completed Integration and Development\
 Today I completed the Development and Integration parts of the theory. I also added docstrings to the main functions, as well as completed the requirements.txt file. This means that I only have the Installation and Maintenance parts to be completed, which are really short. I likely will not complete the task by tomorrow as mentioned in my previous commits, however, maybe I will be done by Wednesday.
 
+7/4/2025\
+Finally Completed the task!\
+Today I have completely finished the task and am ready for submission. This means that I will not be adding more to the theory and side of the task.
 ## Installation
+README.md
+```python
+# WWeather
+A really basic weather app made with python that does not completely suck.
+
+## Installation
+Clone the repository and navigate to the project directory:
+11ASE_Task-1/main/main.py
+
+Then run the file after installing the dependencies in 'requirements.txt'.
+
+If you would like to create your own API key for this app, sign up for OpenWeatherMap and create your own key at https://home.openweathermap.org/api_keys. This is not necessary as there is already one provided for use.
+
+## Features
+- Fetch weather data based on the user entered location or a specified city.
+- Display current weather conditions, including temperature, and weather description. There is even an icon description of the weather.
+
+## Requirements
+To run this program, you need to install the following dependencies:
+
+- `ttkbootstrap` for the main window.
+- `requests` to make HTTP requests to the weather API.
+- `tkinter` for displaying the weather
+- `pillow` to display an icon for the weather.
+
+### Install dependencies
+To install the required dependencies, you can run:
+
+bash:
+pip install -r requirements.txt
+```
+requirements.txt
+```python
+ttkbootstrap == 1.10.1
+pillow == 10.0.0
+tkinter == 8.6.15
+requests == 2.31.0
+```
 
 ## Maintenance
+### Maintenance Questions
+**1. Explain how you would handle issues caused by changes to the weather API over time.**\
+Since the application is only for fetching data, there will be no need to worry about changes to the API over time unless it gets locked behind a paywall. In the event that this does happen, there will likely be a free trial for the API, so the user can continuously generate API keys using a temporary email generator and a free trial.
+
+**2. Explain how you would ensure the program remains compatible with new versions of Python and libraries like requests and matplotlib.**\
+I would not need to make changes to the program as the newer versions of these libraries should have the older versions within them. Also, the user will be installing the older version if they are installing through the requirements.txt file so there should not be an issue as the older version will still be available.
+
+**3. Describe the steps you would take to fix a bug found in the program after deployment.**\
+To fix a bug foiund after deployment I would first make the repository private, then try to fix the bug by removing all the unnecessary functions, then add each of the less important functions one at a time to try and find the bug. This is essentially the same process as first decomposing the program, then beginning Unit Testing, then Integration Testing and finally System Testing.
+
+**4. Outline how you would maintain clear documentation and ensure the program remains easy to update in the future.**\
+The README file will be updated every time there is a new release, and the Comments and DocStrings would make it easy to understand what each function does and what it is for. This provides clear documentation formakign the program easy to update in the future.
+
+### Final Evaluation
+
+**1. Evaluate the current functionality of the program in terms of how well it addresses the functional and non-functional requirements.**\
+This weather app addresses most of the Functional and Non-Functional Requirements, however it has missed out on the user being able to choose what data to delete as there is nothing being stored in the first place apart from cache files. On the bright side, it addresses all of the Non-Functional Requirements and all of the Specifications, satisfying all the desired inputs and outputs.
+
+**2. Discuss areas for improvement or new features that could be added.**\
+If I were to improve on this program, I would try to make it so that it uses the Weather API instead of the OpenWeatherMap as it would be more accurate. This would improve the overall user satisfaction due to the user expreience being elevated.
+
+**3. Evaluate how the project was managed throughout its development and maintenance, including your time management and how challenges were addressed during the software development lifecycle.**\
+Overall, this project was managed moderately well, with most of the workload being towards the end of the duration of the task. Challenges were adressed rather moderately, with the solution being mainly to revert back to when the program had no errors, leading to a rather safe approach to the development.
