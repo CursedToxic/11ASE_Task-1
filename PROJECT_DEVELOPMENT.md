@@ -11,11 +11,11 @@
  The ability to click on buttons and read text is needed to use the program. It should be extremely easy to navigate through the user interface and if the user cannot understand, there should be a navigation guide on top of the search bar.
 
 **Data Display:**\
- The User must be able to read the data from the API but not be able to change without permission. This again helps keep the application running. The data must also be as accurate as possible in order to make sure that the user recieves the right information upon using the app.
+ The User must be able to read the data from the API but not be able to change without permission. This again helps keep the application running. The data must also be as accurate as possible in order to make sure that the user receives the right information upon using the app.
 
 ### Non-Functional Requirements
 **Performance:**\
- This program needs to run smoothly on even the oldest devices (the test will be my MacBook Air from 2013, an 11 year old machine which struggles to run the web browser). Performance should be maintained when using different platforms, so the user can user is confident that they can run it on their computer.
+ This program needs to run smoothly on even the oldest devices (the test will be my MacBook Air from 2013, an 11 year old machine which struggles to run the web browser). Performance should be maintained when using different platforms, so the user can be confident that they can run it on their computer.
 
 **Reliability:**\
  The system actually does need to be extremely reliable as the user's data is a top priority and must not be leaked, so the system needs to be extremely reliable and store the data securely on all operating systems, and must not be flagged as insecure on any of them. This way the user who is going to install the application can be sure that they are not harming their computer.
@@ -32,7 +32,7 @@ The user needs to be able to easily navigate the application even if they have n
 The user inputs text containing the location that they would like to find the weather for. The outputs are the weather for that city, including the temperature in degrees celsius and the weather description e.g. partly cloudy, this shall be done by fetching and outputting data from the API.
 
 **Core Features:**\
-The program needs to accept user input so that they can enter the name of a valid city. Another aspect of function is the ability to detect invalid places so that the weather data that is displayed is as accurate as possible so that the user experience will not be negatively affected.The user needs to also be able to search for the place with a button once they have entered the name of the desired place into the search box (this would be preffered if the user could also press ENTER for the same function).
+The program needs to accept user input so that they can enter the name of a valid city. Another aspect of function is the ability to detect invalid places so that the weather data that is displayed is as accurate as possible so that the user experience will not be negatively affected.The user needs to also be able to search for the place with a button once they have entered the name of the desired place into the search box (this would be preferred if the user could also press ENTER for the same function).
 
 **User Interaction:**\
 The program needs to be able to display the temperature and the description of the weather from the API in a GUI (Graphical User Interface). This makes it easy for the user to find exactly what they want without needing to know much about using a computer.
@@ -50,7 +50,7 @@ How might you make your application more accessible? What could you do with the 
 The user interface must be at least semi-aesthetic in order to make the user feel at home, preventing strain due to unnecessary text. On top of this, the application should launch the first time after installing the dependencies so that the user needs minimal time to retrieve weather data.
 
 **Reliability:**\
-A potential issue that needs to be adressed is the incorrect data when fetching data from the API. An example of this is when the user searches up a city such as 'Zhuzhou' (real place) and it comes up as 'Jianning' instead. This cannot be fixed as there seems to be a mismatch of data from the API itself (it labels Zhuzhou as Jianning and Jianning as something else.) Another issue is that the current weather app cannot distinguish places with the same name. These can hopefully be fixed easily.
+A potential issue that needs to be addressed is the incorrect data when fetching data from the API. An example of this is when the user searches up a city such as 'Zhuzhou' (real place) and it comes up as 'Jianning' instead. This cannot be fixed as there seems to be a mismatch of data from the API itself (it labels Zhuzhou as Jianning and Jianning as something else.) Another issue is that the current weather app cannot distinguish places with the same name. These can hopefully be fixed easily.
 
 ## Design
 ### Gantt Chart
@@ -69,9 +69,9 @@ Link to Gantt Chart: https://lucid.app/lucidspark/162a4a9b-0462-4f05-9b21-b1997a
 |Variable|Data Type|Format for Display|Size in Bytes|Size for Display|Description|Example|Validation|
 |--------|---------|------------------|-------------|----------------|-----------|-------|----------|
 |location|string|text|50|50|the name of the place|Sydney|Must be place on google maps|
-|temperature|float|2 decimal number|8|4|the temparature at the place|21.62|must be between -273.15 and 100.00|
+|temperature|float|2 decimal number|8|4|the temperature at the place|21.62|must be between -273.15 and 100.00|
 |degrees|string|2 character measurement|20|20|measurement for temperature|°C|must be either °C|
-|description|string|text|100|100|the weather for that place|Partly Cloudy|must be valid desription|
+|description|string|text|100|100|the weather for that place|Partly Cloudy|must be valid description|
 
 ### Pseudocode
 ``` python
@@ -1248,7 +1248,7 @@ Today I made some changes to the main.py file which was the file which I copied 
 
 30/3/2025\
 Created Gantt Chart.png\
-Today I inserted the 'Gantt Chart.png' image as part of the documentation of time planning (yes, I finally rememered to take a screenshot). I also made some changes to the theory side, but they were not showing up, leading me to think that GitHub Desktop was not working properly (hence the next commit on the same day.)
+Today I inserted the 'Gantt Chart.png' image as part of the documentation of time planning (yes, I finally remembered to take a screenshot). I also made some changes to the theory side, but they were not showing up, leading me to think that GitHub Desktop was not working properly (hence the next commit on the same day.)
 
 Added some to the 'theory' side\
 Needless to say, it was not an error with GitHub Desktop, I just did not know that autosave was not on. Anyways I finally enabled it and roughly finished the Requirements and Specifications and touched on the Design aspect of the task with the Gantt Chart. These will be poilished over the following week otherwise the situation could turn dire.
@@ -1327,7 +1327,7 @@ Since the application is only for fetching data, there will be no need to worry 
 I would not need to make changes to the program as the newer versions of these libraries should have the older versions within them. Also, the user will be installing the older version if they are installing through the requirements.txt file so there should not be an issue as the older version will still be available.
 
 **3. Describe the steps you would take to fix a bug found in the program after deployment.**\
-To fix a bug foiund after deployment I would first make the repository private, then try to fix the bug by removing all the unnecessary functions, then add each of the less important functions one at a time to try and find the bug. This is essentially the same process as first decomposing the program, then beginning Unit Testing, then Integration Testing and finally System Testing.
+To fix a bug found after deployment I would first make the repository private, then try to fix the bug by removing all the unnecessary functions, then add each of the less important functions one at a time to try and find the bug. This is essentially the same process as first decomposing the program, then beginning Unit Testing, then Integration Testing and finally System Testing.
 
 **4. Outline how you would maintain clear documentation and ensure the program remains easy to update in the future.**\
 The README file will be updated every time there is a new release, and the Comments and DocStrings would make it easy to understand what each function does and what it is for. This provides clear documentation for making the program easy to update in the future.
