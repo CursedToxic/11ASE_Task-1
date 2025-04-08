@@ -1330,7 +1330,7 @@ I would not need to make changes to the program as the newer versions of these l
 To fix a bug foiund after deployment I would first make the repository private, then try to fix the bug by removing all the unnecessary functions, then add each of the less important functions one at a time to try and find the bug. This is essentially the same process as first decomposing the program, then beginning Unit Testing, then Integration Testing and finally System Testing.
 
 **4. Outline how you would maintain clear documentation and ensure the program remains easy to update in the future.**\
-The README file will be updated every time there is a new release, and the Comments and DocStrings would make it easy to understand what each function does and what it is for. This provides clear documentation formakign the program easy to update in the future.
+The README file will be updated every time there is a new release, and the Comments and DocStrings would make it easy to understand what each function does and what it is for. This provides clear documentation for making the program easy to update in the future.
 
 ### Final Evaluation
 
@@ -1338,7 +1338,7 @@ The README file will be updated every time there is a new release, and the Comme
 This weather app addresses most of the Functional and Non-Functional Requirements, however it has missed out on the user being able to choose what data to delete as there is nothing being stored in the first place apart from cache files. On the bright side, it addresses all of the Non-Functional Requirements and all of the Specifications, satisfying all the desired inputs and outputs.
 
 **2. Discuss areas for improvement or new features that could be added.**\
-If I were to improve on this program, I would try to make it so that it uses the Weather API instead of the OpenWeatherMap as it would be more accurate. This would improve the overall user satisfaction due to the user expreience being elevated.
+If I were to improve on this program, I would try to make it so that it uses the Weather API instead of the OpenWeatherMap as it would be more accurate. This would improve the overall user satisfaction due to the user experience being elevated.
 
 **3. Evaluate how the project was managed throughout its development and maintenance, including your time management and how challenges were addressed during the software development lifecycle.**\
-Overall, this project was managed moderately well, with most of the workload being towards the end of the duration of the task. Challenges were adressed rather moderately, with the solution being mainly to revert back to when the program had no errors, leading to a rather safe approach to the development.
+Overall, this project was managed moderately well, with most of the workload being towards the end of the duration of the task. Challenges were addressed rather moderately, with the solution being mainly to revert back to when the program had no errors, leading to a rather safe approach to the development.
